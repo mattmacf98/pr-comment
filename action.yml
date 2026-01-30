@@ -1,5 +1,5 @@
-name: The name of your action here
-description: Provide a description here
+name: PR comment
+description: Comment on a PR with a message
 author: Your name or organization here
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
@@ -9,16 +9,18 @@ branding:
 
 # Define your inputs here.
 inputs:
-  milliseconds:
-    description: Your input description here
+  owner:
+    description: The owner of the repository
     required: true
-    default: '1000'
-
-# Define your outputs here.
-outputs:
-  time:
-    description: Your output description here
-
+  repo:
+    description: The repository name
+    required: true
+  pr_number:
+    description: The pull request number
+    required: true
+  token:
+    description: The token to use to comment on the PR
+    required: true
 runs:
   using: node24
   main: dist/index.js
